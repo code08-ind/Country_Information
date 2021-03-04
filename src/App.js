@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Data from './Data';
+import Header from './Header';
+import Content from './Content';
+import Copy from './Copy';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Copy />
+      {
+        Data.map((val) => {
+          return (
+            <Content
+              key={val.id}
+              link={val.link}
+              imgsrc={val.imgsrc}
+              name={val.name}
+              population={val.population}
+            />
+          );
+        })}
+    </>
   );
 }
 
